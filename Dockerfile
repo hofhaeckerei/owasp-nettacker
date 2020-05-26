@@ -4,4 +4,6 @@ WORKDIR /usr/src/owaspnettacker
 RUN git clone https://github.com/zdresearch/OWASP-Nettacker.git .
 RUN pip install -r requirements.txt
 RUN chmod 0755 nettacker.py
+RUN mkdir -p /app/results
+VOLUME /app/results
 CMD [ "python", "./nettacker.py" ]

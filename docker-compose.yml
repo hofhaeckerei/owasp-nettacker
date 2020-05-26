@@ -1,7 +1,18 @@
 version: '3'
 services:
   web:
-    build: .
+    image: h4ck3r31/owasp-nettacker:latest
     ports:
       - "5000:5000"
-    entrypoint: ["python", "./nettacker.py", "--start-api", "--api-host", "web", "--api-port", "5000"]
+    volumes:
+      - "./results:/app/results"
+    entrypoint:
+      - "python"
+      - "./nettacker.py"
+      - "--start-api"
+      - "--api-host"
+      - "web"
+      - "--api-port"
+      - "5000"
+      - "--api-access-key"
+      - "95f56eea6002a1d3a4505f015a20ddac8cba5646"
